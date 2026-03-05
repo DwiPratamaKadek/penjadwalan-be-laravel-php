@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('overtimes', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignId('karyawan_id')->constrained('karyawans')->onDelete('cascade');
+            $table->foreignId('shift_id')->constrained('shifts')->onDelete('cascade')->nullable();
+            $table->date('overtime_date');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->time('total_hours');  
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('overtimes');
+    }
+};
