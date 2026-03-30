@@ -2,18 +2,20 @@
 
 namespace App\Domains\Masterdata\Karyawan\Models;
 
+use App\Domains\Masterdata\Role\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class KaryawanModel extends Model
 {
     protected $table = 'karyawans';
     protected $fillable = [
-        'nama',
+        'role_id',
+        'name',
         'email',
         'password',
-        'role',
+        'hire_date'
     ];
     public function role(){
-        return $this->belongsTo(RoleModel::class, 'role', 'id');
+        return $this->belongsTo(RoleModel::class, 'role_id', 'id');
     }
 }

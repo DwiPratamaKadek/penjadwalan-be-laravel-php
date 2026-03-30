@@ -9,8 +9,8 @@
     {
         public function create(Request $data){
             $request = HolidayModel::create([
-                'name' => $data->name,
-                'holiday_date' => $data->holiday_date,
+                'name' => $data['name'],
+                'holiday_date' => $data['holiday_date'],
             ]);
             return $request;
         }

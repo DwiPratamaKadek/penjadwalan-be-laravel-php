@@ -3,6 +3,7 @@
     namespace App\Domains\Masterdata\Holiday\Controllers;
 
     use App\Domains\Masterdata\Holiday\Services\HolidayService;
+    use Exception;
     use Illuminate\Http\Request;
 
 class HolidayController
